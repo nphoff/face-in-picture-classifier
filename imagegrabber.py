@@ -52,7 +52,7 @@ class ImageGrabber(object):
         s = requests.get(self.baseUrl + "/listings/active/",
                          params=payload)
         for entry in s.json['results']:
-            self.listing_ids.append(entry['listing_id'])
+            self.listingIds.append(entry['listing_id'])
 
     def get_listing_image(self, listing_id):
         im = requests.get(self.baseUrl + "/listings/" + str(listing_id) + "/images",
@@ -72,6 +72,6 @@ class ImageGrabber(object):
 if __name__ == '__main__':
     a = ImageGrabber()
     a.get_category_listing_ids('clothing/dress/sundress')
-    for image in a.listing_ids:
+    for image in a.listingIds:
         a.get_listing_image(image)
 
