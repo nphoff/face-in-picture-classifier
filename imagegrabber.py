@@ -28,7 +28,6 @@ class ImageGrabber(object):
         self.listingIds = []
         self.targets = []
         self.target_ids = []
-        self.hc = cv.Load("haarcascade_frontalface_default.xml")
         self.maxItems = maxItems
 
     def get_category_id(self, topCategory, subCategory=None,
@@ -55,7 +54,7 @@ class ImageGrabber(object):
         for entry in s.json['results']:
             self.listing_ids.append(entry['listing_id'])
 
-def get_listing_image(self, listing_id):
+    def get_listing_image(self, listing_id):
         im = requests.get(self.baseUrl + "/listings/" + str(listing_id) + "/images",
                           params=self.urlPayload)
         results = im.json['results']
@@ -64,15 +63,15 @@ def get_listing_image(self, listing_id):
             imageUrl = entry['url_570xN']
             break #take one.
         urllib.urlretrieve(imageUrl, 'temp')
-        tempimage = cv.LoadImage('temp')
-
-        #cv.NamedWindow('Boo!')
-        #cv.ShowImage('Boo!',tempimage)
+        self.cvImage = cv.LoadImage('temp')
+        #cv.NamedWindow('debug_window')
+        #cv.ShowImage('debug_window',tempimage)
         #cv.WaitKey(0)
-
+    
+    
 if __name__ == '__main__':
     a = ImageGrabber()
-    a.get_category_listing_ids('clothing/shirt/men')
+    a.get_category_listing_ids('clothing/dress/sundress')
     for image in a.listing_ids:
         a.get_listing_image(image)
 
