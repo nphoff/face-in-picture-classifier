@@ -58,8 +58,7 @@ class ImageGrabber(object):
         i = 0
         for entry in results:
             imageUrl = entry['url_570xN']
-            if i == 0:
-                break
+            break #take one.
         urllib.urlretrieve(imageUrl, 'temp')
         tempimage = cv.LoadImage('temp')
         cv.NamedWindow('Boo!')
