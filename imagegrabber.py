@@ -3,7 +3,7 @@
 # to determine whether or not they have faces.
 
 import requests
-import oauth2 as oauth
+#import oauth2 as oauth
 import urllib
 import cv
 #import simplejson as json
@@ -28,6 +28,7 @@ class ImageGrabber(object):
         self.listing_ids = []
         self.targets = []
         self.target_ids = []
+        self.hc = cv.Load("haarcascade_frontalface_default.xml")
     
     def get_category_id(self, topCategory, subCategory=None,
                         subSubCategory = None):

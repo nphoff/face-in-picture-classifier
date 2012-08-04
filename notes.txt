@@ -16,3 +16,10 @@ individual listings relevant to the category.
 to check if everything is the same as it used to be.
 
 With the listing_id's, I could go and grab the pictures
+
+
+****************************************************************************
+
+Random data:
+
+listing_id I can use: 101188906
