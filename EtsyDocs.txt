@@ -1,0 +1,3149 @@
+﻿****************************************************************************
+
+Method name is:	getMethodTable
+Uri: 		/
+Visibility:	public
+Http Method:	GET
+Type:		ApiMethod
+
+Description:
+Get a list of all methods available.
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	getCategory
+Uri: 		/categories/:tag
+Visibility:	public
+Http Method:	GET
+Type:		Category
+
+Description:
+Retrieves a top-level Category by tag.
+
+Parameters:
+	tag:   string
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	getSubCategory
+Uri: 		/categories/:tag/:subtag
+Visibility:	public
+Http Method:	GET
+Type:		Category
+
+Description:
+Retrieves a second-level Category by tag and subtag.
+
+Parameters:
+	subtag:   string
+	tag:   string
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	getSubSubCategory
+Uri: 		/categories/:tag/:subtag/:subsubtag
+Visibility:	public
+Http Method:	GET
+Type:		Category
+
+Description:
+Retrieves a third-level Category by tag, subtag and subsubtag.
+
+Parameters:
+	subtag:   string
+	subsubtag:   string
+	tag:   string
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	findAllCountry
+Uri: 		/countries
+Visibility:	public
+Http Method:	GET
+Type:		Country
+
+Description:
+Finds all Country.
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	getCountry
+Uri: 		/countries/:country_id
+Visibility:	public
+Http Method:	GET
+Type:		Country
+
+Description:
+Retrieves a Country by id.
+
+Parameters:
+	country_id:   array(int)
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	findAllFeaturedTreasuries
+Uri: 		/featured_treasuries
+Visibility:	public
+Http Method:	GET
+Type:		FeaturedTreasury
+
+Description:
+Finds all FeaturedTreasuries.
+
+Parameters:
+	region:   region
+	limit:   int
+	page:   int
+	offset:   int
+Defaults:
+	region:   __ALL_REGIONS__
+	limit:   25
+	page:   None
+	offset:   0
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	getFeaturedTreasuryById
+Uri: 		/featured_treasuries/:featured_treasury_id
+Visibility:	public
+Http Method:	GET
+Type:		FeaturedTreasury
+
+Description:
+Finds FeaturedTreasury by numeric ID.
+
+Parameters:
+	featured_treasury_id:   int
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	findAllListingsForFeaturedTreasuryId
+Uri: 		/featured_treasuries/:featured_treasury_id/listings
+Visibility:	public
+Http Method:	GET
+Type:		Listing
+
+Description:
+Finds all listings for a certain FeaturedTreasury.
+
+Parameters:
+	featured_treasury_id:   int
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	findAllActiveListingsForFeaturedTreasuryId
+Uri: 		/featured_treasuries/:featured_treasury_id/listings/active
+Visibility:	public
+Http Method:	GET
+Type:		Listing
+
+Description:
+Finds all active listings for a certain FeaturedTreasury.
+
+Parameters:
+	featured_treasury_id:   int
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	findAllFeaturedListings
+Uri: 		/featured_treasuries/listings
+Visibility:	public
+Http Method:	GET
+Type:		Listing
+
+Description:
+Finds all FeaturedTreasury listings.
+
+Parameters:
+	region:   region
+	limit:   int
+	page:   int
+	offset:   int
+Defaults:
+	region:   __ALL_REGIONS__
+	limit:   25
+	page:   None
+	offset:   0
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	findAllCurrentFeaturedListings
+Uri: 		/featured_treasuries/listings/homepage_current
+Visibility:	public
+Http Method:	GET
+Type:		Listing
+
+Description:
+Finds FeaturedTreasury listings that are currently displayed on a regional homepage.
+
+Parameters:
+	region:   region
+Defaults:
+	region:   US
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	findAllFeaturedTreasuriesByOwner
+Uri: 		/featured_treasuries/owner/:owner_id
+Visibility:	public
+Http Method:	GET
+Type:		FeaturedTreasury
+
+Description:
+Finds all FeaturedTreasury by numeric owner_id.
+
+Parameters:
+	owner_id:   int
+	limit:   int
+	page:   int
+	offset:   int
+Defaults:
+	limit:   25
+	page:   None
+	offset:   0
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	createListing
+Uri: 		/listings
+Visibility:	private
+Http Method:	POST
+Type:		Listing
+
+Description:
+Creates a new Listing
+
+Parameters:
+	style:   array(string)
+	category_id:   int
+	description:   text
+	title:   string
+	price:   float
+	tags:   array(string)
+	is_supply:   boolean
+	who_made:   enum(i_did, collective, someone_else)
+	when_made:   enum(made_to_order, 2010_2012, 2000_2009, 1993_1999, before_1993, 1990_1992, 1980s, 1970s, 1960s, 1950s, 1940s, 1930s, 1920s, 1910s, 1900s, 1800s, 1700s, before_1700)
+	state:   enum(active, draft)
+	materials:   array(string)
+	shipping_template_id:   int
+	occasion:   enum(anniversary, baptism, bar_or_bat_mitzvah, birthday, canada_day, chinese_new_year, cinco_de_mayo, confirmation, christmas, day_of_the_dead, easter, eid, engagement, fathers_day, get_well, graduation, halloween, hanukkah, housewarming, kwanza, prom, july_4th, mothers_day, new_baby, new_years, quinceanera, retirement, st_patricks_day, sweet_16, sympathy, thanksgiving, valentines, wedding)
+	shop_section_id:   int
+	recipient:   enum(men, women, unisex_adults, teen_boys, teen_girls, teens, boys, girls, children, baby_boys, baby_girls, babies, birds, cats, dogs, pets)
+	image:   image
+	quantity:   int
+Defaults:
+	style:   None
+	tags:   None
+	image:   None
+	state:   active
+	materials:   None
+	occasion:   None
+	recipient:   None
+	shop_section_id:   None
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	getListing
+Uri: 		/listings/:listing_id
+Visibility:	public
+Http Method:	GET
+Type:		Listing
+
+Description:
+Retrieves a Listing by id.
+
+Parameters:
+	listing_id:   array(int)
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	updateListing
+Uri: 		/listings/:listing_id
+Visibility:	private
+Http Method:	PUT
+Type:		Listing
+
+Description:
+Updates a Listing
+
+Parameters:
+	listing_id:   int
+	category_id:   int
+	description:   text
+	title:   string
+	style:   array(string)
+	price:   float
+	tags:   array(string)
+	state:   enum(active, inactive, draft)
+	is_supply:   boolean
+	who_made:   enum(i_did, collective, someone_else)
+	when_made:   enum(made_to_order, 2010_2012, 2000_2009, 1993_1999, before_1993, 1990_1992, 1980s, 1970s, 1960s, 1950s, 1940s, 1930s, 1920s, 1910s, 1900s, 1800s, 1700s, before_1700)
+	renew:   boolean
+	materials:   array(string)
+	shipping_template_id:   int
+	occasion:   enum(anniversary, baptism, bar_or_bat_mitzvah, birthday, canada_day, chinese_new_year, cinco_de_mayo, confirmation, christmas, day_of_the_dead, easter, eid, engagement, fathers_day, get_well, graduation, halloween, hanukkah, housewarming, kwanza, prom, july_4th, mothers_day, new_baby, new_years, quinceanera, retirement, st_patricks_day, sweet_16, sympathy, thanksgiving, valentines, wedding)
+	shop_section_id:   int
+	recipient:   enum(men, women, unisex_adults, teen_boys, teen_girls, teens, boys, girls, children, baby_boys, baby_girls, babies, birds, cats, dogs, pets)
+	quantity:   int
+Defaults:
+	style:   None
+	category_id:   None
+	description:   None
+	title:   None
+	price:   None
+	tags:   None
+	state:   active
+	is_supply:   None
+	who_made:   None
+	when_made:   None
+	renew:   None
+	materials:   None
+	shipping_template_id:   None
+	occasion:   None
+	shop_section_id:   None
+	recipient:   None
+	quantity:   None
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	deleteListing
+Uri: 		/listings/:listing_id
+Visibility:	private
+Http Method:	DELETE
+Type:		Listing
+
+Description:
+Deletes a Listing
+
+Parameters:
+	listing_id:   int
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	findAllListingFavoredBy
+Uri: 		/listings/:listing_id/favored-by
+Visibility:	public
+Http Method:	GET
+Type:		FavoriteListing
+
+Description:
+Retrieves a set of FavoriteListing objects associated to a Listing.
+
+Parameters:
+	listing_id:   int
+	limit:   int
+	page:   int
+	offset:   int
+Defaults:
+	limit:   25
+	page:   None
+	offset:   0
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	findAllListingImages
+Uri: 		/listings/:listing_id/images
+Visibility:	public
+Http Method:	GET
+Type:		ListingImage
+
+Description:
+Retrieves a set of ListingImage objects associated to a Listing.
+
+Parameters:
+	listing_id:   int
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	uploadListingImage
+Uri: 		/listings/:listing_id/images
+Visibility:	private
+Http Method:	POST
+Type:		ListingImage
+
+Description:
+Upload a new listing image
+
+Parameters:
+	listing_id:   int
+	image:   image
+	rank:   int
+Defaults:
+	rank:   1
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	getImage_Listing
+Uri: 		/listings/:listing_id/images/:listing_image_id
+Visibility:	public
+Http Method:	GET
+Type:		ListingImage
+
+Description:
+Retrieves a Image_Listing by id.
+
+Parameters:
+	listing_id:   int
+	listing_image_id:   array(int)
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	deleteListingImage
+Uri: 		/listings/:listing_id/images/:listing_image_id
+Visibility:	private
+Http Method:	DELETE
+Type:		ListingImage
+
+Description:
+Deletes a listing image
+
+Parameters:
+	listing_id:   int
+	listing_image_id:   int
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	findAllListingShippingInfo
+Uri: 		/listings/:listing_id/shipping/info
+Visibility:	public
+Http Method:	GET
+Type:		ShippingInfo
+
+Description:
+Retrieves a set of ShippingInfo objects associated to a Listing.
+
+Parameters:
+	listing_id:   int
+	limit:   int
+	page:   int
+	offset:   int
+Defaults:
+	limit:   25
+	page:   None
+	offset:   0
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	createShippingInfo
+Uri: 		/listings/:listing_id/shipping/info
+Visibility:	private
+Http Method:	POST
+Type:		ShippingInfo
+
+Description:
+Creates a new ShippingInfo.
+
+Parameters:
+	primary_cost:   float
+	secondary_cost:   float
+	region_id:   int
+	listing_id:   int
+	destination_country_id:   int
+	origin_country_id:   int
+Defaults:
+	destination_country_id:   None
+	region_id:   None
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	getListingTranslation
+Uri: 		/listings/:listing_id/translations/:language
+Visibility:	public
+Http Method:	GET
+Type:		ListingTranslation
+
+Description:
+Retrieves a ListingTranslation by listing_id and language
+
+Parameters:
+	listing_id:   int
+	language:   language
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	createListingTranslation
+Uri: 		/listings/:listing_id/translations/:language
+Visibility:	private
+Http Method:	POST
+Type:		ListingTranslation
+
+Description:
+Creates a ListingTranslation by listing_id and language
+
+Parameters:
+	listing_id:   int
+	language:   language
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	updateListingTranslation
+Uri: 		/listings/:listing_id/translations/:language
+Visibility:	private
+Http Method:	PUT
+Type:		ListingTranslation
+
+Description:
+Updates a ListingTranslation by listing_id and language
+
+Parameters:
+	listing_id:   int
+	language:   language
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	deleteListingTranslation
+Uri: 		/listings/:listing_id/translations/:language
+Visibility:	private
+Http Method:	DELETE
+Type:		ListingTranslation
+
+Description:
+Deletes a ListingTranslation by listing_id and language
+
+Parameters:
+	listing_id:   int
+	language:   language
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	findAllListingActive
+Uri: 		/listings/active
+Visibility:	public
+Http Method:	GET
+Type:		Listing
+
+Description:
+Finds all active Listings. (Note: the sort_on and sort_order options only work when combined with one of the search options: keywords, color, tags, materials, location, etc.)
+
+Parameters:
+	category:   category
+	min_price:   float
+	lat:   latitude
+	tags:   array(string)
+	color:   color_triplet
+	sort_on:   enum(created, price, score)
+	lon:   longitude
+	max_price:   float
+	materials:   array(string)
+	color_accuracy:   color_wiggle
+	sort_order:   enum(up, down)
+	limit:   int
+	location:   string
+	offset:   int
+	keywords:   text
+	page:   int
+	geo_level:   enum(city, state, country)
+Defaults:
+	category:   None
+	min_price:   None
+	lat:   None
+	tags:   None
+	color:   None
+	sort_on:   created
+	lon:   None
+	max_price:   None
+	materials:   None
+	color_accuracy:   0
+	sort_order:   down
+	limit:   25
+	location:   None
+	offset:   0
+	keywords:   None
+	page:   None
+	geo_level:   city
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	getOrder
+Uri: 		/orders/:order_id
+Visibility:	private
+Http Method:	GET
+Type:		Order
+
+Description:
+Retrieves a Order by id.
+
+Parameters:
+	order_id:   array(int)
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	findAllOrderReceipts
+Uri: 		/orders/:order_id/receipts
+Visibility:	private
+Http Method:	GET
+Type:		Receipt
+
+Description:
+Retrieves a set of Receipt objects associated to a Order.
+
+Parameters:
+	order_id:   int
+	limit:   int
+	page:   int
+	offset:   int
+Defaults:
+	limit:   25
+	page:   None
+	offset:   0
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	findPayment
+Uri: 		/payments/:payment_id
+Visibility:	private
+Http Method:	GET
+Type:		Payment
+
+Description:
+Get a Direct Checkout Payment
+
+Parameters:
+	payment_id:   array(int)
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	findPaymentAdjustments
+Uri: 		/payments/:payment_id/adjustments
+Visibility:	private
+Http Method:	GET
+Type:		PaymentAdjustment
+
+Description:
+Get a Payment Adjustments from a Payment Id
+
+Parameters:
+	payment_id:   int
+	limit:   int
+	page:   int
+	offset:   int
+Defaults:
+	limit:   25
+	page:   None
+	offset:   0
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	findPaymentAdjustment
+Uri: 		/payments/:payment_id/adjustments/:payment_adjustment_id
+Visibility:	private
+Http Method:	GET
+Type:		PaymentAdjustment
+
+Description:
+Get a Direct Checkout Payment Adjustment
+
+Parameters:
+	payment_id:   int
+	payment_adjustment_id:   int
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	findPaymentAdjustmentItem
+Uri: 		/payments/:payment_id/adjustments/:payment_adjustment_id/items
+Visibility:	private
+Http Method:	GET
+Type:		PaymentAdjustmentItem
+
+Description:
+Get Direct Checkout Payment Adjustment Items
+
+Parameters:
+	payment_id:   int
+	page:   int
+	limit:   int
+	payment_adjustment_id:   int
+	offset:   int
+Defaults:
+	limit:   25
+	page:   None
+	offset:   0
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	findPaymentAdjustmentItem
+Uri: 		/payments/:payment_id/adjustments/:payment_adjustment_id/items/:payment_adjustment_item_id
+Visibility:	private
+Http Method:	GET
+Type:		PaymentAdjustmentItem
+
+Description:
+Get a Direct Checkout Payment Adjustment Item
+
+Parameters:
+	payment_id:   int
+	payment_adjustment_item_id:   int
+	payment_adjustment_id:   int
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	createPaymentTemplate
+Uri: 		/payments/templates
+Visibility:	private
+Http Method:	POST
+Type:		PaymentTemplate
+
+Description:
+Creates a new PaymentTemplate
+
+Parameters:
+	city:   string
+	name:   string
+	zip:   string
+	allow_other:   boolean
+	country_id:   int
+	second_line:   string
+	state:   string
+	allow_paypal:   boolean
+	allow_cc:   boolean
+	first_line:   string
+	allow_mo:   boolean
+	paypal_email:   string
+	allow_check:   boolean
+Defaults:
+	city:   None
+	name:   None
+	zip:   None
+	allow_other:   None
+	country_id:   None
+	second_line:   None
+	state:   None
+	allow_paypal:   None
+	allow_cc:   None
+	first_line:   None
+	allow_mo:   None
+	paypal_email:   None
+	allow_check:   None
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	getPaymentTemplate
+Uri: 		/payments/templates/:payment_template_id
+Visibility:	private
+Http Method:	GET
+Type:		PaymentTemplate
+
+Description:
+Retrieves a PaymentTemplate by id.
+
+Parameters:
+	payment_template_id:   array(int)
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	updatePaymentTemplate
+Uri: 		/payments/templates/:payment_template_id
+Visibility:	private
+Http Method:	PUT
+Type:		PaymentTemplate
+
+Description:
+Updates a PaymentTemplate
+
+Parameters:
+	city:   string
+	name:   string
+	zip:   string
+	allow_other:   boolean
+	country_id:   int
+	second_line:   string
+	state:   string
+	allow_paypal:   boolean
+	allow_cc:   boolean
+	first_line:   string
+	allow_mo:   boolean
+	paypal_email:   string
+	allow_check:   boolean
+	payment_template_id:   int
+Defaults:
+	city:   None
+	name:   None
+	zip:   None
+	allow_other:   None
+	country_id:   None
+	second_line:   None
+	state:   None
+	allow_paypal:   None
+	allow_cc:   None
+	first_line:   None
+	allow_mo:   None
+	paypal_email:   None
+	allow_check:   None
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	createReceiptOnSandbox
+Uri: 		/receipts
+Visibility:	private
+Http Method:	POST
+Type:		Receipt
+
+Description:
+Creates a purchase for the current OAuth user, including Order, Receipt and Transaction resources. This method is only available via the Sandbox API. Listing IDs must be active, and belong to the same seller user ID. The buyer must have at least one UserAddress record, or an error will be thrown.
+
+Parameters:
+	listing_id:   array(int)
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	getReceipt
+Uri: 		/receipts/:receipt_id
+Visibility:	private
+Http Method:	GET
+Type:		Receipt
+
+Description:
+Retrieves a Receipt by id.
+
+Parameters:
+	receipt_id:   array(int)
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	updateReceipt
+Uri: 		/receipts/:receipt_id
+Visibility:	private
+Http Method:	PUT
+Type:		Receipt
+
+Description:
+Updates a Receipt
+
+Parameters:
+	was_shipped:   boolean
+	message_from_buyer:   string
+	was_paid:   boolean
+	receipt_id:   int
+	message_from_seller:   string
+Defaults:
+	was_shipped:   None
+	message_from_buyer:   None
+	was_paid:   None
+	message_from_seller:   None
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	findAllReceiptListings
+Uri: 		/receipts/:receipt_id/listings
+Visibility:	private
+Http Method:	GET
+Type:		Listing
+
+Description:
+Finds all listings in a receipt
+
+Parameters:
+	data_version:   string
+	limit:   int
+	page:   int
+	receipt_id:   int
+	offset:   int
+Defaults:
+	data_version:   None
+	limit:   25
+	page:   None
+	offset:   0
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	findAllReceiptTransactions
+Uri: 		/receipts/:receipt_id/transactions
+Visibility:	private
+Http Method:	GET
+Type:		Transaction
+
+Description:
+Retrieves a set of Transaction objects associated to a Receipt.
+
+Parameters:
+	limit:   int
+	page:   int
+	receipt_id:   int
+	offset:   int
+Defaults:
+	limit:   25
+	page:   None
+	offset:   0
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	findAllRegion
+Uri: 		/regions
+Visibility:	public
+Http Method:	GET
+Type:		Region
+
+Description:
+Finds all Region.
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	getRegion
+Uri: 		/regions/:region_id
+Visibility:	public
+Http Method:	GET
+Type:		Region
+
+Description:
+Retrieves a Region by id.
+
+Parameters:
+	region_id:   array(int)
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	getServerEpoch
+Uri: 		/server/epoch
+Visibility:	public
+Http Method:	GET
+Type:		Int
+
+Description:
+Get server time, in epoch seconds notation.
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	ping
+Uri: 		/server/ping
+Visibility:	public
+Http Method:	GET
+Type:		String
+
+Description:
+Check that the server is alive.
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	getShippingInfo
+Uri: 		/shipping/info/:shipping_info_id
+Visibility:	public
+Http Method:	GET
+Type:		ShippingInfo
+
+Description:
+Retrieves a ShippingInfo by id.
+
+Parameters:
+	shipping_info_id:   array(int)
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	updateShippingInfo
+Uri: 		/shipping/info/:shipping_info_id
+Visibility:	private
+Http Method:	PUT
+Type:		ShippingInfo
+
+Description:
+Updates a ShippingInfo with the given id.
+
+Parameters:
+	primary_cost:   float
+	destination_country_id:   int
+	secondary_cost:   float
+	region_id:   int
+	listing_id:   int
+	shipping_info_id:   int
+	origin_country_id:   int
+Defaults:
+	primary_cost:   None
+	secondary_cost:   None
+	region_id:   None
+	listing_id:   None
+	destination_country_id:   None
+	origin_country_id:   None
+	currency_code:   None
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	deleteShippingInfo
+Uri: 		/shipping/info/:shipping_info_id
+Visibility:	private
+Http Method:	DELETE
+Type:		ShippingInfo
+
+Description:
+Deletes the ShippingInfo with the given id.
+
+Parameters:
+	shipping_info_id:   int
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	createShippingTemplate
+Uri: 		/shipping/templates
+Visibility:	private
+Http Method:	POST
+Type:		ShippingTemplate
+
+Description:
+Creates a new ShippingTemplate
+
+Parameters:
+	primary_cost:   float
+	destination_region_id:   int
+	title:   string
+	destination_country_id:   int
+	origin_country_id:   int
+	secondary_cost:   float
+Defaults:
+	destination_country_id:   None
+	destination_region_id:   None
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	getShippingTemplate
+Uri: 		/shipping/templates/:shipping_template_id
+Visibility:	public
+Http Method:	GET
+Type:		ShippingTemplate
+
+Description:
+Retrieves a ShippingTemplate by id.
+
+Parameters:
+	shipping_template_id:   array(int)
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	updateShippingTemplate
+Uri: 		/shipping/templates/:shipping_template_id
+Visibility:	private
+Http Method:	PUT
+Type:		ShippingTemplate
+
+Description:
+Updates a ShippingTemplate
+
+Parameters:
+	shipping_template_id:   int
+	origin_country_id:   int
+	title:   string
+Defaults:
+	origin_country_id:   None
+	title:   None
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	deleteShippingTemplate
+Uri: 		/shipping/templates/:shipping_template_id
+Visibility:	private
+Http Method:	DELETE
+Type:		ShippingTemplate
+
+Description:
+Deletes the ShippingTemplate with the given id.
+
+Parameters:
+	shipping_template_id:   int
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	findAllShippingTemplateEntries
+Uri: 		/shipping/templates/:shipping_template_id/entries
+Visibility:	public
+Http Method:	GET
+Type:		ShippingTemplateEntry
+
+Description:
+Retrieves a set of ShippingTemplateEntry objects associated to a ShippingTemplate.
+
+Parameters:
+	page:   int
+	limit:   int
+	shipping_template_id:   int
+	offset:   int
+Defaults:
+	limit:   25
+	page:   None
+	offset:   0
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	createShippingTemplateEntry
+Uri: 		/shipping/templates/entries
+Visibility:	private
+Http Method:	POST
+Type:		ShippingTemplateEntry
+
+Description:
+Creates a new ShippingTemplateEntry
+
+Parameters:
+	destination_region_id:   int
+	primary_cost:   float
+	destination_country_id:   int
+	secondary_cost:   float
+	shipping_template_id:   int
+Defaults:
+	destination_country_id:   None
+	destination_region_id:   None
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	getShippingTemplateEntry
+Uri: 		/shipping/templates/entries/:shipping_template_entry_id
+Visibility:	public
+Http Method:	GET
+Type:		ShippingTemplateEntry
+
+Description:
+Retrieves a ShippingTemplateEntry by id.
+
+Parameters:
+	shipping_template_entry_id:   array(int)
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	updateShippingTemplateEntry
+Uri: 		/shipping/templates/entries/:shipping_template_entry_id
+Visibility:	private
+Http Method:	PUT
+Type:		ShippingTemplateEntry
+
+Description:
+Updates a ShippingTemplateEntry
+
+Parameters:
+	shipping_template_entry_id:   int
+	primary_cost:   float
+	destination_country_id:   int
+	secondary_cost:   float
+Defaults:
+	primary_cost:   None
+	destination_country_id:   None
+	secondary_cost:   None
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	deleteShippingTemplateEntry
+Uri: 		/shipping/templates/entries/:shipping_template_entry_id
+Visibility:	private
+Http Method:	DELETE
+Type:		ShippingTemplateEntry
+
+Description:
+Deletes a ShippingTemplateEntry
+
+Parameters:
+	shipping_template_entry_id:   int
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	findAllShops
+Uri: 		/shops
+Visibility:	public
+Http Method:	GET
+Type:		Shop
+
+Description:
+Finds all Shops.  If there is a keywords parameter, finds shops with shop_name starting with keywords.
+
+Parameters:
+	offset:   int
+	limit:   int
+	page:   int
+	shop_name:   string (length >= 3)
+Defaults:
+	offset:   0
+	limit:   25
+	page:   None
+	shop_name:   None
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	getShop
+Uri: 		/shops/:shop_id
+Visibility:	public
+Http Method:	GET
+Type:		Shop
+
+Description:
+Retrieves a Shop by id.
+
+Parameters:
+	shop_id:   array(shop_id_or_name)
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	updateShop
+Uri: 		/shops/:shop_id
+Visibility:	private
+Http Method:	PUT
+Type:		Shop
+
+Description:
+Updates a Shop
+
+Parameters:
+	announcement:   text
+	policy_additional:   text
+	is_refusing_alchemy:   boolean
+	title:   string
+	policy_refunds:   text
+	policy_welcome:   text
+	policy_payment:   text
+	alchemy_message:   string
+	shop_id:   shop_id_or_name
+	sale_message:   text
+	policy_shipping:   text
+	policy_seller_info:   text
+Defaults:
+	announcement:   None
+	policy_additional:   None
+	is_refusing_alchemy:   None
+	title:   None
+	policy_refunds:   None
+	policy_welcome:   None
+	policy_payment:   None
+	alchemy_message:   None
+	sale_message:   None
+	policy_shipping:   None
+	policy_seller_info:   None
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	uploadShopBanner
+Uri: 		/shops/:shop_id/appearance/banner
+Visibility:	private
+Http Method:	POST
+Type:		Shop
+
+Description:
+Upload a new shop banner image
+
+Parameters:
+	image:   image
+	shop_id:   shop_id_or_name
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	deleteShopBanner
+Uri: 		/shops/:shop_id/appearance/banner
+Visibility:	private
+Http Method:	DELETE
+Type:		Shop
+
+Description:
+Deletes a shop banner image
+
+Parameters:
+	shop_id:   shop_id_or_name
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	findAllShopCoupons
+Uri: 		/shops/:shop_id/coupons
+Visibility:	private
+Http Method:	GET
+Type:		Coupon
+
+Description:
+Retrieves all Shop_Coupons by shop_id
+
+Parameters:
+	shop_id:   shop_id_or_name
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	createCoupon
+Uri: 		/shops/:shop_id/coupons
+Visibility:	private
+Http Method:	POST
+Type:		Coupon
+
+Description:
+Creates a new Coupon.
+
+Parameters:
+	free_shipping:   boolean
+	domestic_only:   boolean
+	pct_discount:   int
+	coupon_code:   string
+	shop_id:   shop_id_or_name
+	seller_active:   boolean
+Defaults:
+	free_shipping:   false
+	domestic_only:   false
+	pct_discount:   None
+	seller_active:   false
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	findCoupon
+Uri: 		/shops/:shop_id/coupons/:coupon_id
+Visibility:	private
+Http Method:	GET
+Type:		Coupon
+
+Description:
+Retrieves a Shop_Coupon by id and shop_id
+
+Parameters:
+	shop_id:   shop_id_or_name
+	coupon_id:   int
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	updateCoupon
+Uri: 		/shops/:shop_id/coupons/:coupon_id
+Visibility:	private
+Http Method:	PUT
+Type:		Coupon
+
+Description:
+Updates a coupon
+
+Parameters:
+	seller_active:   boolean
+	shop_id:   shop_id_or_name
+	coupon_id:   int
+Defaults:
+	seller_active:   false
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	deleteCoupon
+Uri: 		/shops/:shop_id/coupons/:coupon_id
+Visibility:	private
+Http Method:	DELETE
+Type:		Coupon
+
+Description:
+Deletes a coupon
+
+Parameters:
+	shop_id:   shop_id_or_name
+	coupon_id:   int
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	findLedger
+Uri: 		/shops/:shop_id/ledger/
+Visibility:	private
+Http Method:	GET
+Type:		Ledger
+
+Description:
+Get a Shop Payment Account Ledger
+
+Parameters:
+	shop_id:   shop_id_or_name
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	findLedgerEntries
+Uri: 		/shops/:shop_id/ledger/entries
+Visibility:	private
+Http Method:	GET
+Type:		LedgerEntry
+
+Description:
+Get a Shop Payment Account Ledger's Entries
+
+Parameters:
+	min_created:   epoch
+	shop_id:   shop_id_or_name
+	limit:   int
+	offset:   int
+	max_created:   epoch
+	page:   int
+Defaults:
+	limit:   25
+	max_created:   None
+	page:   None
+	min_created:   None
+	offset:   0
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	findAllShopListingsActive
+Uri: 		/shops/:shop_id/listings/active
+Visibility:	public
+Http Method:	GET
+Type:		Listing
+
+Description:
+Finds all active Listings associated with a Shop
+
+Parameters:
+	category:   category
+	min_price:   float
+	tags:   array(string)
+	color:   color_triplet
+	sort_on:   enum(created, price, score)
+	max_price:   float
+	materials:   array(string)
+	color_accuracy:   color_wiggle
+	shop_id:   shop_id_or_name
+	limit:   int
+	offset:   int
+	keywords:   string
+	sort_order:   enum(up, down)
+	page:   int
+Defaults:
+	category:   None
+	min_price:   None
+	tags:   None
+	color:   None
+	sort_on:   created
+	max_price:   None
+	materials:   None
+	color_accuracy:   0
+	sort_order:   down
+	limit:   25
+	offset:   0
+	keywords:   None
+	page:   None
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	findAllShopListingsDraft
+Uri: 		/shops/:shop_id/listings/draft
+Visibility:	private
+Http Method:	GET
+Type:		Listing
+
+Description:
+Finds all of a Shop's draft listings
+
+Parameters:
+	shop_id:   shop_id_or_name
+	limit:   int
+	page:   int
+	offset:   int
+Defaults:
+	limit:   25
+	page:   None
+	offset:   0
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	findAllShopListingsExpired
+Uri: 		/shops/:shop_id/listings/expired
+Visibility:	private
+Http Method:	GET
+Type:		Listing
+
+Description:
+Retrieves Listings associated to a Shop that are expired
+
+Parameters:
+	shop_id:   shop_id_or_name
+	limit:   int
+	page:   int
+	offset:   int
+Defaults:
+	limit:   25
+	page:   None
+	offset:   0
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	getShopListingExpired
+Uri: 		/shops/:shop_id/listings/expired/:listing_id
+Visibility:	private
+Http Method:	GET
+Type:		Listing
+
+Description:
+Retrieves a Listing associated to a Shop that is inactive
+
+Parameters:
+	listing_id:   int
+	shop_id:   shop_id_or_name
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	findAllShopListingsFeatured
+Uri: 		/shops/:shop_id/listings/featured
+Visibility:	public
+Http Method:	GET
+Type:		Listing
+
+Description:
+Retrieves Listings associated to a Shop that are featured
+
+Parameters:
+	shop_id:   shop_id_or_name
+	limit:   int
+	page:   int
+	offset:   int
+Defaults:
+	limit:   25
+	page:   None
+	offset:   0
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	findAllShopListingsInactive
+Uri: 		/shops/:shop_id/listings/inactive
+Visibility:	private
+Http Method:	GET
+Type:		Listing
+
+Description:
+Retrieves Listings associated to a Shop that are inactive
+
+Parameters:
+	shop_id:   shop_id_or_name
+	limit:   int
+	page:   int
+	offset:   int
+Defaults:
+	limit:   25
+	page:   None
+	offset:   0
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	getShopListingInactive
+Uri: 		/shops/:shop_id/listings/inactive/:listing_id
+Visibility:	private
+Http Method:	GET
+Type:		Listing
+
+Description:
+Retrieves a Listing associated to a Shop that is inactive
+
+Parameters:
+	listing_id:   int
+	shop_id:   shop_id_or_name
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	findAllShopReceipts
+Uri: 		/shops/:shop_id/receipts
+Visibility:	private
+Http Method:	GET
+Type:		Receipt
+
+Description:
+Retrieves a set of Receipt objects associated to a Shop.
+
+Parameters:
+	min_created:   epoch
+	was_shipped:   boolean
+	was_paid:   boolean
+	shop_id:   shop_id_or_name
+	limit:   int
+	offset:   int
+	max_created:   epoch
+	page:   int
+Defaults:
+	min_created:   None
+	was_shipped:   None
+	was_paid:   None
+	limit:   25
+	offset:   0
+	max_created:   None
+	page:   None
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	findAllShopReceiptsByStatus
+Uri: 		/shops/:shop_id/receipts/:status
+Visibility:	private
+Http Method:	GET
+Type:		Receipt
+
+Description:
+Retrieves a set of Receipt objects associated to a Shop based on the status.
+
+Parameters:
+	status:   enum(open, unshipped, unpaid, completed, processing, all)
+	shop_id:   shop_id_or_name
+	limit:   int
+	page:   int
+	offset:   int
+Defaults:
+	limit:   25
+	page:   None
+	offset:   0
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	findAllShopSections
+Uri: 		/shops/:shop_id/sections
+Visibility:	public
+Http Method:	GET
+Type:		ShopSection
+
+Description:
+Retrieves a set of ShopSection objects associated to a Shop.
+
+Parameters:
+	shop_id:   shop_id_or_name
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	createShopSection
+Uri: 		/shops/:shop_id/sections
+Visibility:	private
+Http Method:	POST
+Type:		ShopSection
+
+Description:
+Creates a new ShopSection.
+
+Parameters:
+	shop_id:   shop_id_or_name
+	user_id:   int
+	title:   text
+Defaults:
+	user_id:   None
+	title:   None
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	getShopSection
+Uri: 		/shops/:shop_id/sections/:shop_section_id
+Visibility:	public
+Http Method:	GET
+Type:		ShopSection
+
+Description:
+Retrieves a ShopSection by id and shop_id
+
+Parameters:
+	shop_id:   shop_id_or_name
+	shop_section_id:   array(int)
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	updateShopSection
+Uri: 		/shops/:shop_id/sections/:shop_section_id
+Visibility:	private
+Http Method:	PUT
+Type:		ShopSection
+
+Description:
+Updates a ShopSection with the given id.
+
+Parameters:
+	title:   text
+	shop_id:   shop_id_or_name
+	user_id:   int
+	rank:   int
+	shop_section_id:   int
+Defaults:
+	user_id:   None
+	rank:   None
+	title:   None
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	deleteShopSection
+Uri: 		/shops/:shop_id/sections/:shop_section_id
+Visibility:	private
+Http Method:	DELETE
+Type:		ShopSection
+
+Description:
+Deletes the ShopSection with the given id.
+
+Parameters:
+	shop_id:   shop_id_or_name
+	shop_section_id:   int
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	findAllShopSectionListings
+Uri: 		/shops/:shop_id/sections/:shop_section_id/listings
+Visibility:	public
+Http Method:	GET
+Type:		Listing
+
+Description:
+Finds all listings within a shop section
+
+Parameters:
+	shop_section_id:   int
+	shop_id:   shop_id_or_name
+	limit:   int
+	page:   int
+	offset:   int
+Defaults:
+	limit:   25
+	page:   None
+	offset:   0
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	findAllShopSectionListingsActive
+Uri: 		/shops/:shop_id/sections/:shop_section_id/listings/active
+Visibility:	public
+Http Method:	GET
+Type:		Listing
+
+Description:
+Finds all listings within a shop section
+
+Parameters:
+	sort_on:   enum(created, price)
+	shop_id:   shop_id_or_name
+	limit:   int
+	offset:   int
+	sort_order:   enum(up, down)
+	page:   int
+	shop_section_id:   int
+Defaults:
+	sort_order:   down
+	sort_on:   created
+	limit:   25
+	page:   None
+	offset:   0
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	getShopSectionTranslation
+Uri: 		/shops/:shop_id/sections/:shop_section_id/translations/:language
+Visibility:	public
+Http Method:	GET
+Type:		ShopSectionTranslation
+
+Description:
+Retrieves a ShopSectionTranslation by shop_id, shop_section_id and language
+
+Parameters:
+	shop_id:   shop_id_or_name
+	language:   language
+	shop_section_id:   int
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	createShopSectionTranslation
+Uri: 		/shops/:shop_id/sections/:shop_section_id/translations/:language
+Visibility:	private
+Http Method:	POST
+Type:		ShopSectionTranslation
+
+Description:
+Creates a ShopSectionTranslation by shop_id, shop_section_id and language
+
+Parameters:
+	shop_id:   shop_id_or_name
+	language:   language
+	shop_section_id:   int
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	updateShopSectionTranslation
+Uri: 		/shops/:shop_id/sections/:shop_section_id/translations/:language
+Visibility:	private
+Http Method:	PUT
+Type:		ShopSectionTranslation
+
+Description:
+Updates a ShopSectionTranslation by shop_id, shop_section_id and language
+
+Parameters:
+	shop_id:   shop_id_or_name
+	language:   language
+	shop_section_id:   int
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	deleteShopSectionTranslation
+Uri: 		/shops/:shop_id/sections/:shop_section_id/translations/:language
+Visibility:	private
+Http Method:	DELETE
+Type:		ShopSectionTranslation
+
+Description:
+Deletes a ShopSectionTranslation by shop_id, shop_section_id and language
+
+Parameters:
+	shop_id:   shop_id_or_name
+	language:   language
+	shop_section_id:   int
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	findAllShopTransactions
+Uri: 		/shops/:shop_id/transactions
+Visibility:	private
+Http Method:	GET
+Type:		Transaction
+
+Description:
+Retrieves a set of Transaction objects associated to a Shop.
+
+Parameters:
+	shop_id:   shop_id_or_name
+	limit:   int
+	page:   int
+	offset:   int
+Defaults:
+	limit:   25
+	page:   None
+	offset:   0
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	getShopTranslation
+Uri: 		/shops/:shop_id/translations/:language
+Visibility:	public
+Http Method:	GET
+Type:		ShopTranslation
+
+Description:
+Retrieves a ShopTranslation by shop_id and language
+
+Parameters:
+	shop_id:   shop_id_or_name
+	language:   language
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	createShopTranslation
+Uri: 		/shops/:shop_id/translations/:language
+Visibility:	private
+Http Method:	POST
+Type:		ShopTranslation
+
+Description:
+Creates a ShopTranslation by shop_id and language
+
+Parameters:
+	shop_id:   shop_id_or_name
+	language:   language
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	updateShopTranslation
+Uri: 		/shops/:shop_id/translations/:language
+Visibility:	private
+Http Method:	PUT
+Type:		ShopTranslation
+
+Description:
+Updates a ShopTranslation by shop_id and language
+
+Parameters:
+	shop_id:   shop_id_or_name
+	language:   language
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	deleteShopTranslation
+Uri: 		/shops/:shop_id/translations/:language
+Visibility:	private
+Http Method:	DELETE
+Type:		ShopTranslation
+
+Description:
+Deletes a ShopTranslation by shop_id and language
+
+Parameters:
+	shop_id:   shop_id_or_name
+	language:   language
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	findAllTopCategory
+Uri: 		/taxonomy/categories
+Visibility:	public
+Http Method:	GET
+Type:		Category
+
+Description:
+Retrieves all top-level Categories.
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	findAllTopCategoryChildren
+Uri: 		/taxonomy/categories/:tag
+Visibility:	public
+Http Method:	GET
+Type:		Category
+
+Description:
+Retrieves children of a top-level Category by tag.
+
+Parameters:
+	tag:   string
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	findAllSubCategoryChildren
+Uri: 		/taxonomy/categories/:tag/:subtag
+Visibility:	public
+Http Method:	GET
+Type:		Category
+
+Description:
+Retrieves children of a second-level Category by tag and subtag.
+
+Parameters:
+	subtag:   string
+	tag:   string
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	findSuggestedStyles
+Uri: 		/taxonomy/styles
+Visibility:	public
+Http Method:	GET
+Type:		Style
+
+Description:
+Retrieve all suggested styles.
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	findPopularTags
+Uri: 		/taxonomy/tags
+Visibility:	public
+Http Method:	GET
+Type:		Tag
+
+Description:
+DEPRECATED - Retrieves all related tags for the given tag set.
+
+Parameters:
+	limit:   int
+Defaults:
+	limit:   25
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	findAllRelatedTags
+Uri: 		/taxonomy/tags/:tags
+Visibility:	public
+Http Method:	GET
+Type:		Tag
+
+Description:
+DEPRECATED - Retrieves all related tags for the given tag set.
+
+Parameters:
+	limit:   int
+	tags:   array(string)
+Defaults:
+	limit:   25
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	getTransaction
+Uri: 		/transactions/:transaction_id
+Visibility:	private
+Http Method:	GET
+Type:		Transaction
+
+Description:
+Retrieves a Transaction by id.
+
+Parameters:
+	transaction_id:   array(int)
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	findAllTreasuries
+Uri: 		/treasuries
+Visibility:	public
+Http Method:	GET
+Type:		Treasury
+
+Description:
+Search Treasuries or else List all Treasuries
+
+Parameters:
+	sort_on:   enum(hotness, created)
+	sort_order:   enum(up, down)
+	limit:   int
+	offset:   int
+	keywords:   treasury_search_string
+	page:   int
+Defaults:
+	sort_on:   hotness
+	sort_order:   down
+	limit:   25
+	offset:   0
+	keywords:   None
+	page:   None
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	createTreasury
+Uri: 		/treasuries
+Visibility:	private
+Http Method:	POST
+Type:		Treasury
+
+Description:
+Create a Treasury
+
+Parameters:
+	listing_ids:   array(int)
+	tags:   array(string)
+	description:   treasury_description
+	private:   boolean
+	title:   treasury_title
+Defaults:
+	private:   0
+	tags:   
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	getTreasury
+Uri: 		/treasuries/:treasury_key
+Visibility:	public
+Http Method:	GET
+Type:		Treasury
+
+Description:
+Get a Treasury
+
+Parameters:
+	treasury_key:   treasury_id
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	deleteTreasury
+Uri: 		/treasuries/:treasury_key
+Visibility:	private
+Http Method:	DELETE
+Type:		Treasury
+
+Description:
+Delete a Treasury
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	findTreasuryComments
+Uri: 		/treasuries/:treasury_key/comments
+Visibility:	public
+Http Method:	GET
+Type:		ForumPost
+
+Description:
+Get a Treasury's Comments
+
+Parameters:
+	treasury_key:   treasury_id
+	limit:   int
+	page:   int
+	offset:   int
+Defaults:
+	limit:   25
+	page:   None
+	offset:   0
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	postTreasuryComment
+Uri: 		/treasuries/:treasury_key/comments
+Visibility:	private
+Http Method:	POST
+Type:		ForumPost
+
+Description:
+Leave a comment on a Treasury List
+
+Parameters:
+	message:   forum_post
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	deleteTreasuryComment
+Uri: 		/treasuries/:treasury_key/comments/:comment_id
+Visibility:	private
+Http Method:	DELETE
+Type:		ForumPost
+
+Description:
+Delete a given comment on a Treasury List
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	describeOccasionEnum
+Uri: 		/types/enum/occasion
+Visibility:	public
+Http Method:	GET
+Type:		DataType
+
+Description:
+Describes the legal values for Listing.occasion.
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	describeRecipientEnum
+Uri: 		/types/enum/recipient
+Visibility:	public
+Http Method:	GET
+Type:		DataType
+
+Description:
+Describes the legal values for Listing.recipient.
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	describeWhenMadeEnum
+Uri: 		/types/enum/when_made
+Visibility:	public
+Http Method:	GET
+Type:		DataType
+
+Description:
+Describes the legal values for Listing.when_made.
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	describeWhoMadeEnum
+Uri: 		/types/enum/who_made
+Visibility:	public
+Http Method:	GET
+Type:		DataType
+
+Description:
+Describes the legal values for Listing.who_made.
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	findAllUsers
+Uri: 		/users
+Visibility:	public
+Http Method:	GET
+Type:		User
+
+Description:
+Finds all Users whose name or username match the keywords parameter.
+
+Parameters:
+	keywords:   string
+	limit:   int
+	page:   int
+	offset:   int
+Defaults:
+	keywords:   None
+	limit:   25
+	page:   None
+	offset:   0
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	getUser
+Uri: 		/users/:user_id
+Visibility:	public
+Http Method:	GET
+Type:		User
+
+Description:
+Retrieves a User by id.
+
+Parameters:
+	user_id:   array(user_id_or_name)
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	findAllUserAddresses
+Uri: 		/users/:user_id/addresses
+Visibility:	private
+Http Method:	GET
+Type:		UserAddress
+
+Description:
+Retrieves a set of UserAddress objects associated to a User.
+
+Parameters:
+	limit:   int
+	user_id:   user_id_or_name
+	page:   int
+	offset:   int
+Defaults:
+	limit:   25
+	page:   None
+	offset:   0
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	createUserAddress
+Uri: 		/users/:user_id/addresses/
+Visibility:	private
+Http Method:	POST
+Type:		UserAddress
+
+Description:
+Creates a new UserAddress.
+
+Parameters:
+	city:   string
+	user_id:   user_id_or_name
+	name:   string
+	zip:   string
+	country_id:   int
+	state:   string
+	first_line:   string
+	second_line:   string
+Defaults:
+	second_line:   None
+	state:   None
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	getUserAddress
+Uri: 		/users/:user_id/addresses/:user_address_id
+Visibility:	private
+Http Method:	GET
+Type:		UserAddress
+
+Description:
+Retrieves a UserAddress by id.
+
+Parameters:
+	user_address_id:   array(int)
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	deleteUserAddress
+Uri: 		/users/:user_id/addresses/:user_address_id
+Visibility:	private
+Http Method:	DELETE
+Type:		UserAddress
+
+Description:
+Deletes the UserAddress with the given id.
+
+Parameters:
+	user_address_id:   int
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	uploadAvatar
+Uri: 		/users/:user_id/avatar
+Visibility:	private
+Http Method:	POST
+Type:		Avatar
+
+Description:
+Upload a new user avatar image
+
+Parameters:
+	src:   string
+	image:   image
+	user_id:   user_id_or_name
+Defaults:
+	src:   None
+	image:   None
+	user_id:   None
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	getAvatarImgSrc
+Uri: 		/users/:user_id/avatar/src
+Visibility:	public
+Http Method:	GET
+Type:		Avatar
+
+Description:
+Get avatar image source
+
+Parameters:
+	user_id:   user_id_or_name
+Defaults:
+	user_id:   None
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	getUserBillingOverview
+Uri: 		/users/:user_id/billing/overview
+Visibility:	private
+Http Method:	GET
+Type:		BillingOverview
+
+Description:
+Retrieves the user's current balance.
+
+Parameters:
+	user_id:   user_id_or_name
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	getAllUserCarts
+Uri: 		/users/:user_id/carts
+Visibility:	private
+Http Method:	GET
+Type:		Cart
+
+Description:
+Get a user's Carts
+
+Parameters:
+	user_id:   user_id_or_name
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	addToCart
+Uri: 		/users/:user_id/carts
+Visibility:	private
+Http Method:	POST
+Type:		Cart
+
+Description:
+Add a listing to a cart
+
+Parameters:
+	listing_id:   int
+	user_id:   user_id_or_name
+	quantity:   int
+Defaults:
+	quantity:   1
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	updateCartListingQuantity
+Uri: 		/users/:user_id/carts
+Visibility:	private
+Http Method:	PUT
+Type:		Cart
+
+Description:
+Update a cart listing purchase quantity
+
+Parameters:
+	listing_id:   int
+	user_id:   user_id_or_name
+	quantity:   int
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	removeCartListing
+Uri: 		/users/:user_id/carts
+Visibility:	private
+Http Method:	DELETE
+Type:		Cart
+
+Description:
+Remove a listing from a cart
+
+Parameters:
+	listing_id:   int
+	user_id:   user_id_or_name
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	getUserCart
+Uri: 		/users/:user_id/carts/:cart_id
+Visibility:	private
+Http Method:	GET
+Type:		Cart
+
+Description:
+Get a cart
+
+Parameters:
+	user_id:   user_id_or_name
+	cart_id:   cart_id
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	updateCart
+Uri: 		/users/:user_id/carts/:cart_id
+Visibility:	private
+Http Method:	PUT
+Type:		Cart
+
+Description:
+Update a cart
+
+Parameters:
+	coupon_code:   string
+	destination_country_id:   int
+	user_id:   user_id_or_name
+	cart_id:   cart_id
+	message_to_seller:   text
+Defaults:
+	coupon_code:   None
+	destination_country_id:   None
+	message_to_seller:   None
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	deleteCart
+Uri: 		/users/:user_id/carts/:cart_id
+Visibility:	private
+Http Method:	DELETE
+Type:		Cart
+
+Description:
+Delete a cart
+
+Parameters:
+	user_id:   user_id_or_name
+	cart_id:   cart_id
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	findAllCartListings
+Uri: 		/users/:user_id/carts/:cart_id/listings
+Visibility:	private
+Http Method:	GET
+Type:		Listing
+
+Description:
+Finds all listings in a given Cart
+
+Parameters:
+	user_id:   user_id_or_name
+	cart_id:   cart_id
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	findAllUserCharges
+Uri: 		/users/:user_id/charges
+Visibility:	private
+Http Method:	GET
+Type:		BillCharge
+
+Description:
+Retrieves a set of BillCharge objects associated to a User. NOTE: from 8/8/12 the min_created and max_created arguments will be mandatory and can be no more than 31 days apart.
+
+Parameters:
+	user_id:   user_id_or_name
+	min_created:   epoch
+	sort_order:   enum(up, down)
+	limit:   int
+	offset:   int
+	max_created:   epoch
+	page:   int
+Defaults:
+	min_created:   None
+	sort_order:   up
+	limit:   25
+	offset:   0
+	max_created:   None
+	page:   None
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	getUserChargesMetadata
+Uri: 		/users/:user_id/charges/meta
+Visibility:	private
+Http Method:	GET
+Type:		Dict
+
+Description:
+Metadata for the set of BillCharges objects associated to a User
+
+Parameters:
+	user_id:   user_id_or_name
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	getCirclesContainingUser
+Uri: 		/users/:user_id/circles
+Visibility:	public
+Http Method:	GET
+Type:		User
+
+Description:
+Returns a list of users who have circled this user
+
+Parameters:
+	limit:   int
+	user_id:   user_id_or_name
+	page:   int
+	offset:   int
+Defaults:
+	limit:   25
+	page:   None
+	offset:   0
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	getConnectedUser
+Uri: 		/users/:user_id/circles/:to_user_id
+Visibility:	public
+Http Method:	GET
+Type:		User
+
+Description:
+Returns details about a connection between users
+
+Parameters:
+	limit:   int
+	to_user_id:   user_id_or_name
+	user_id:   user_id_or_name
+	page:   int
+	offset:   int
+Defaults:
+	limit:   25
+	page:   None
+	offset:   0
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	unconnectUsers
+Uri: 		/users/:user_id/circles/:to_user_id
+Visibility:	private
+Http Method:	DELETE
+Type:		User
+
+Description:
+Removes a user (to_user_id) from the logged in user's (user_id) circle
+
+Parameters:
+	to_user_id:   user_id_or_name
+	user_id:   user_id_or_name
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	getConnectedUsers
+Uri: 		/users/:user_id/connected_users
+Visibility:	public
+Http Method:	GET
+Type:		User
+
+Description:
+Returns a list of users that are in this user's cricle
+
+Parameters:
+	limit:   int
+	user_id:   user_id_or_name
+	page:   int
+	offset:   int
+Defaults:
+	limit:   25
+	page:   None
+	offset:   0
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	connectUsers
+Uri: 		/users/:user_id/connected_users
+Visibility:	private
+Http Method:	POST
+Type:		User
+
+Description:
+Adds user (to_user_id) to the user's (user_id) circle
+
+Parameters:
+	to_user_id:   user_id_or_name
+	user_id:   user_id_or_name
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	findAllUserFavoredBy
+Uri: 		/users/:user_id/favored-by
+Visibility:	public
+Http Method:	GET
+Type:		FavoriteUser
+
+Description:
+Retrieves a set of FavoriteUser objects associated to a User.
+
+Parameters:
+	limit:   int
+	user_id:   user_id_or_name
+	page:   int
+	offset:   int
+Defaults:
+	limit:   25
+	page:   None
+	offset:   0
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	findAllUserFavoriteListings
+Uri: 		/users/:user_id/favorites/listings
+Visibility:	public
+Http Method:	GET
+Type:		FavoriteListing
+
+Description:
+Finds all favorite listings for a user
+
+Parameters:
+	limit:   int
+	user_id:   user_id_or_name
+	page:   int
+	offset:   int
+Defaults:
+	limit:   25
+	page:   None
+	offset:   0
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	findUserFavoriteListings
+Uri: 		/users/:user_id/favorites/listings/:listing_id
+Visibility:	public
+Http Method:	GET
+Type:		FavoriteListing
+
+Description:
+Finds a favorite listing for a user
+
+Parameters:
+	listing_id:   int
+	user_id:   user_id_or_name
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	createUserFavoriteListings
+Uri: 		/users/:user_id/favorites/listings/:listing_id
+Visibility:	private
+Http Method:	POST
+Type:		FavoriteListing
+
+Description:
+Creates a new favorite listing for a user
+
+Parameters:
+	listing_id:   int
+	user_id:   user_id_or_name
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	deleteUserFavoriteListings
+Uri: 		/users/:user_id/favorites/listings/:listing_id
+Visibility:	private
+Http Method:	DELETE
+Type:		FavoriteListing
+
+Description:
+Delete a favorite listing for a user
+
+Parameters:
+	listing_id:   int
+	user_id:   user_id_or_name
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	findAllUserFavoriteUsers
+Uri: 		/users/:user_id/favorites/users
+Visibility:	public
+Http Method:	GET
+Type:		FavoriteUser
+
+Description:
+Finds all favorite users for a user
+
+Parameters:
+	limit:   int
+	user_id:   user_id_or_name
+	page:   int
+	offset:   int
+Defaults:
+	limit:   25
+	page:   None
+	offset:   0
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	findUserFavoriteUsers
+Uri: 		/users/:user_id/favorites/users/:target_user_id
+Visibility:	public
+Http Method:	GET
+Type:		FavoriteUser
+
+Description:
+Finds a favorite user for a user
+
+Parameters:
+	user_id:   user_id_or_name
+	target_user_id:   user_id_or_name
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	createUserFavoriteUsers
+Uri: 		/users/:user_id/favorites/users/:target_user_id
+Visibility:	private
+Http Method:	POST
+Type:		FavoriteUser
+
+Description:
+Creates a new favorite listing for a user
+
+Parameters:
+	user_id:   user_id_or_name
+	target_user_id:   user_id_or_name
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	deleteUserFavoriteUsers
+Uri: 		/users/:user_id/favorites/users/:target_user_id
+Visibility:	private
+Http Method:	DELETE
+Type:		FavoriteUser
+
+Description:
+Delete a favorite listing for a user
+
+Parameters:
+	user_id:   user_id_or_name
+	target_user_id:   user_id_or_name
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	findAllUserFeedbackAsAuthor
+Uri: 		/users/:user_id/feedback/as-author
+Visibility:	public
+Http Method:	GET
+Type:		Feedback
+
+Description:
+Retrieves a set of Feedback objects associated to a User.
+
+Parameters:
+	limit:   int
+	user_id:   user_id_or_name
+	page:   int
+	offset:   int
+Defaults:
+	limit:   25
+	page:   None
+	offset:   0
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	findAllUserFeedbackAsBuyer
+Uri: 		/users/:user_id/feedback/as-buyer
+Visibility:	public
+Http Method:	GET
+Type:		Feedback
+
+Description:
+Retrieves a set of Feedback objects associated to a User.
+
+Parameters:
+	limit:   int
+	user_id:   user_id_or_name
+	page:   int
+	offset:   int
+Defaults:
+	limit:   25
+	page:   None
+	offset:   0
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	findAllUserFeedbackAsSeller
+Uri: 		/users/:user_id/feedback/as-seller
+Visibility:	public
+Http Method:	GET
+Type:		Feedback
+
+Description:
+Retrieves a set of Feedback objects associated to a User.
+
+Parameters:
+	limit:   int
+	user_id:   user_id_or_name
+	page:   int
+	offset:   int
+Defaults:
+	limit:   25
+	page:   None
+	offset:   0
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	findAllUserFeedbackAsSubject
+Uri: 		/users/:user_id/feedback/as-subject
+Visibility:	public
+Http Method:	GET
+Type:		Feedback
+
+Description:
+Retrieves a set of Feedback objects associated to a User.
+
+Parameters:
+	limit:   int
+	user_id:   user_id_or_name
+	page:   int
+	offset:   int
+Defaults:
+	limit:   25
+	page:   None
+	offset:   0
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	findAllFeedbackFromBuyers
+Uri: 		/users/:user_id/feedback/from-buyers
+Visibility:	public
+Http Method:	GET
+Type:		Feedback
+
+Description:
+
+                    Returns a set of FeedBack objects associated to a User.
+                    This is essentially the union between the findAllUserFeedbackAsBuyer
+                    and findAllUserFeedbackAsSubject methods.
+
+Parameters:
+	limit:   int
+	user_id:   user_id_or_name
+	page:   int
+	offset:   int
+Defaults:
+	limit:   25
+	user_id:   None
+	page:   None
+	offset:   0
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	findAllFeedbackFromSellers
+Uri: 		/users/:user_id/feedback/from-sellers
+Visibility:	public
+Http Method:	GET
+Type:		Feedback
+
+Description:
+
+                    Returns a set of FeedBack objects associated to a User.
+                    This is essentially the union between
+                    the findAllUserFeedbackAsBuyer and findAllUserFeedbackAsSubject methods.
+
+Parameters:
+	limit:   int
+	user_id:   user_id_or_name
+	page:   int
+	offset:   int
+Defaults:
+	limit:   25
+	user_id:   None
+	page:   None
+	offset:   0
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	findAllUserOrders
+Uri: 		/users/:user_id/orders
+Visibility:	private
+Http Method:	GET
+Type:		Order
+
+Description:
+Retrieves a set of Order objects associated to a User.
+
+Parameters:
+	user_id:   user_id_or_name
+	min_created:   epoch
+	limit:   int
+	offset:   int
+	max_created:   epoch
+	page:   int
+Defaults:
+	limit:   25
+	max_created:   None
+	page:   None
+	min_created:   None
+	offset:   0
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	findAllUserPayments
+Uri: 		/users/:user_id/payments
+Visibility:	private
+Http Method:	GET
+Type:		BillPayment
+
+Description:
+Retrieves a set of BillPayment objects associated to a User.
+
+Parameters:
+	user_id:   user_id_or_name
+	min_created:   epoch
+	sort_order:   enum(up, down)
+	limit:   int
+	offset:   int
+	max_created:   epoch
+	page:   int
+Defaults:
+	min_created:   None
+	sort_order:   up
+	limit:   25
+	offset:   0
+	max_created:   None
+	page:   None
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	findAllUserPaymentTemplates
+Uri: 		/users/:user_id/payments/templates
+Visibility:	private
+Http Method:	GET
+Type:		PaymentTemplate
+
+Description:
+Retrieves a set of PaymentTemplate objects associated to a User.
+
+Parameters:
+	user_id:   user_id_or_name
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	findAllUserBuyerReceipts
+Uri: 		/users/:user_id/receipts
+Visibility:	private
+Http Method:	GET
+Type:		Receipt
+
+Description:
+Retrieves a set of Receipt objects associated to a User.
+
+Parameters:
+	limit:   int
+	user_id:   user_id_or_name
+	page:   int
+	offset:   int
+Defaults:
+	limit:   25
+	page:   None
+	offset:   0
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	findAllUserShippingTemplates
+Uri: 		/users/:user_id/shipping/templates
+Visibility:	private
+Http Method:	GET
+Type:		ShippingTemplate
+
+Description:
+Retrieves a set of ShippingTemplate objects associated to a User.
+
+Parameters:
+	limit:   int
+	user_id:   user_id_or_name
+	page:   int
+	offset:   int
+Defaults:
+	limit:   25
+	page:   None
+	offset:   0
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	findAllUserShops
+Uri: 		/users/:user_id/shops
+Visibility:	public
+Http Method:	GET
+Type:		Shop
+
+Description:
+Retrieves a set of Shop objects associated to a User.
+
+Parameters:
+	limit:   int
+	user_id:   user_id_or_name
+	page:   int
+	offset:   int
+Defaults:
+	limit:   25
+	page:   None
+	offset:   0
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	findAllUserBuyerTransactions
+Uri: 		/users/:user_id/transactions
+Visibility:	private
+Http Method:	GET
+Type:		Transaction
+
+Description:
+Retrieves a set of Transaction objects associated to a User.
+
+Parameters:
+	limit:   int
+	user_id:   user_id_or_name
+	page:   int
+	offset:   int
+Defaults:
+	limit:   25
+	page:   None
+	offset:   0
+
+****************************************************************************
+****************************************************************************
+
+Method name is:	findAllUserTreasuries
+Uri: 		/users/:user_id/treasuries
+Visibility:	public
+Http Method:	GET
+Type:		Treasury
+
+Description:
+Get a user's Treasuries
+
+Parameters:
+	user_id:   user_id_or_name
+	sort_on:   enum(hotness, created)
+	sort_order:   enum(up, down)
+	limit:   int
+	offset:   int
+	page:   int
+Defaults:
+	limit:   25
+	sort_on:   hotness
+	sort_order:   down
+	page:   None
+	offset:   0
+
+****************************************************************************
