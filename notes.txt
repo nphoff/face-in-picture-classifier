@@ -1,0 +1,18 @@
+This will house the notes for the etsy scraper/facial recognition program.
+
+**************************************************************************
+
+                                 Ideas
+
+**************************************************************************
+
+First thing to find is to get a category.  A list of these may be hardcoded
+or else brought in by input from the user.
+
+Then, within that category, I would have to get listing_id's for the
+individual listings relevant to the category.  
+
+//TODO: May need to cache things locally for ~24 hours
+to check if everything is the same as it used to be.
+
+With the listing_id's, I could go and grab the pictures

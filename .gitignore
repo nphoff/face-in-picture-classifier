@@ -25,3 +25,10 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
+
+#not specific files
+keys.py
+etsydocumentationtotext.py
+scratch.py
+temp
+test_output.txt

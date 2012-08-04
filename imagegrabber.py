@@ -4,6 +4,8 @@
 
 import requests
 import oauth2 as oauth
+import urllib
+import cv
 #import simplejson as json
 
 #grabbing the authentication key from keys file
@@ -17,12 +19,12 @@ from keys import v2 as apiKey
 MAX_ITEMS = 5
 
 class ImageGrabber(object):
-    def __init__(self,sandbox=True):
+    def __init__(self,sandbox=False):
         if sandbox:
             self.baseUrl = 'http://sandbox.openapi.etsy.com/v2'
         else:
             self.baseUrl = 'http://openapi.etsy.com/v2'
-        self.urlPayload = {'api_key'=v2}
+        self.urlPayload = {'api_key': apiKey}
         self.listing_ids = []
         self.targets = []
         self.target_ids = []
@@ -49,9 +51,22 @@ class ImageGrabber(object):
                          params=payload)
         
 
-    def get_listing_images(self, listing_id):
-        pass
+    def get_listing_image(self, listing_id):
+        im = requests.get(self.baseUrl + "/listings/" + str(listing_id) + "/images",
+                          params=self.urlPayload)
+        results = im.json['results']
+        i = 0
+        for entry in results:
+            imageUrl = entry['url_570xN']
+            if i == 0:
+                break
+        urllib.urlretrieve(imageUrl, 'temp')
+        tempimage = cv.LoadImage('temp')
+        cv.NamedWindow('Boo!')
+        cv.ShowImage('Boo!',tempimage)
+        cv.WaitKey(0)
         
+               
 if __name__ == '__main__':
     a = ImageGrabber()
-    
+    a.get_listing_image(101188906)
