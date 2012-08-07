@@ -3,10 +3,9 @@
 # to determine whether or not they have faces.
 
 import requests
-#import oauth2 as oauth
 import urllib
 import cv
-#import simplejson as json
+
 
 #grabbing the authentication key from keys file
 #If using this file from another source, uncomment the
@@ -29,7 +28,7 @@ class ImageGrabber(object):
         self.targets = []
         self.target_ids = []
         self.maxItems = maxItems
-
+        
     def get_category_id(self, topCategory, subCategory=None,
                         subSubCategory = None):
         if subCategory:
@@ -55,23 +54,30 @@ class ImageGrabber(object):
             self.listingIds.append(entry['listing_id'])
 
     def get_listing_image(self, listing_id):
-        im = requests.get(self.baseUrl + "/listings/" + str(listing_id) + "/images",
-                          params=self.urlPayload)
-        results = im.json['results']
-        i = 0
-        for entry in results:
-            imageUrl = entry['url_570xN']
-            break #take one.
-        urllib.urlretrieve(imageUrl, 'temp')
-        self.cvImage = cv.LoadImage('temp')
+        try:
+            self.cvImage = cv.LoadImage("../cached/images/" + str(listing_id))
+        except IOError as e:
+                im = requests.get(self.baseUrl + "/listings/" + str(listing_id) + "/images",
+                                  params=self.urlPayload)
+                results = im.json['results']
+                i = 0
+                for entry in results:
+                    imageUrl = entry['url_570xN']
+                    break #take one.
+                urllib.urlretrieve(imageUrl, "../cached/images/" + str(listing_id))
+                self.cvImage = cv.LoadImage("../cached/images/" + str(listing_id))
         #cv.NamedWindow('debug_window')
         #cv.ShowImage('debug_window',tempimage)
         #cv.WaitKey(0)
-    
-    
+                
+    def set_listing_ids(self, inputListingIdList):
+        self.listingIds = inputListingIdList
+
 if __name__ == '__main__':
-    a = ImageGrabber()
+    cv.NamedWindow("debug_window")
+    a = ImageGrabber(20)
     a.get_category_listing_ids('clothing/dress/sundress')
     for image in a.listingIds:
         a.get_listing_image(image)
-
+        cv.ShowImage('debug_window', a.cvImage)
+        cv.WaitKey(0)

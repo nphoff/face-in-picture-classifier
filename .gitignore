@@ -26,6 +26,12 @@ pip-log.txt
 #Mr Developer
 .mr.developer.cfg
 
+#pickled files
+*.p
+
+#xml files
+*.xml
+
 #not specific files
 keys.py
 etsydocumentationtotext.py
