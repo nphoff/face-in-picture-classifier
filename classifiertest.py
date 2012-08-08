@@ -78,7 +78,7 @@ class ClassifierTest():
         false_positive_both = 0
         false_positive_either = 0
 
-        training_data = pickle.load(open("testing/training_data.p", "rb"))
+        training_data = pickle.load(open("testing/blind_test.p", "rb"))
         blind_test = pickle.load(open("testing/blind_test.p", "rb"))
         frontal_face_results = pickle.load(open("results/frontalface_alt.p", "rb"))
         profile_face_results = pickle.load(open("results/frontalface_alt2.p", "rb"))

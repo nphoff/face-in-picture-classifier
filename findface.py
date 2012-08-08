@@ -4,7 +4,7 @@ import requests
 ##function will check an image and return true or false
 
 def find_face(image, debug_mode=False, listing_id=None,
-              classifier="classifiers/haarcascade_frontalface_default.xml"):
+              classifier="classifiers/haarcascade_frontalface_alt.xml"):
     hc = cv.Load(classifier)
 
     faces = cv.HaarDetectObjects(image,hc,cv.CreateMemStorage(), 1.3, 3, 0, (0,0))
@@ -13,7 +13,7 @@ def find_face(image, debug_mode=False, listing_id=None,
     if debug_mode:
         for (x,y,w,h),n in faces:
             cv.Rectangle(image, (x,y), (x+w, y+h), 255)
-        cv.SaveImage("../cached/" + classifier[12:-4] + "/"+ str(listing_id) + '.jpg', image)
+        cv.SaveImage("../cached/" + classifier[24:-4] + "/"+ str(listing_id) + '.jpg', image)
         # cv.NamedWindow("debug_window")
         # cv.ShowImage("debug_window", image)
         # cv.WaitKey(0)

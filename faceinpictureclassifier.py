@@ -33,7 +33,7 @@ class FaceInPictureClassifier(object):
             self.listingStatistics[listingId]['tags'] = tags
         
 
-    def check_for_faces(self, classifier="haarcascade_frontalface_default.xml"):
+    def check_for_faces(self, classifier="classifiers/haarcascade_frontalface_alt.xml"):
         n = len(self.listingIds)
         i = 0
         for listingId in self.listingIds:
@@ -70,12 +70,9 @@ class FaceInPictureClassifier(object):
 
 if __name__ == "__main__":
     a = FaceInPictureClassifier()
+    classifier = "classifiers/haarcascade_frontalface_alt.xml"
     a.get_listing_ids_and_tags_from_listings("../cached/active_sundress_listings.txt")
-    classifiers = [
-                   'haarcascade_profileface.xml'
-                   ]
-    for classifier in classifiers:
-        a.check_for_faces(classifier)
-        pickle.dump(a.listingStatistics, open("sundress_info"+classifier[:-4] + '.p', "wb"))
+    a.check_for_faces(classifier)
+    pickle.dump(a.listingStatistics, open("sundress_info"+classifier[24:-4] + '.p', "wb"))
     
     
