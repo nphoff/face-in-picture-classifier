@@ -1,5 +1,8 @@
 import pickle
 
+from operator import itemgetter
+
+
 def createTagDict():
     all_tags = {}
     with open('../cached/backup_better4k.p', 'rb') as f:
@@ -55,20 +58,30 @@ def getWeightedSimilarityIndex():
                 weighted_simdex[pair] = weight
     pickle.dump(weighted_simdex, open('../cached/weighted_simdex.p', 'wb'))
 
-def cullConnectedGraph(threshold):
+def cullConnectedGraph(fraction):
+    #TODO: find a smarter way to cull the connected graph
     connected_graph = pickle.load(open('../cached/connected_graph.p', 'rb'))
     weighted_simdex = pickle.load(open('../cached/weighted_simdex.p', 'rb'))
-    for pair in weighted_simdex:
-        if weighted_simdex[pair] > 0: print weighted_simdex[pair]
-        # if weighted_simdex[pair] < threshold:
-        #     pairlist = pair.split('<>')
-        ##so close!! do this tomorrow :D    
+    #Converting the weighted simdex to a sorted list of tuples
+    sorted_simdex = sorted(weighted_simdex.items(), key=itemgetter(1))
+    n = len(sorted_simdex)
+    end_of_cull = int(fraction*n)
+    for i in range(0, end_of_cull):
+        #this will cut the connections between the lowest weighted connections
+        pairlist = sorted_simdex[i][0].split('<>')
+        try:
+            connected_graph[pairlist[0]].remove(pairlist[1])
+            connected_graph[pairlist[1]].remove(pairlist[0])
+        except:
+            #either one doesn't exist.
+            continue
+    pickle.dump(connected_graph, open('../cached/culled_connected_graph.p', 'wb'))
+    
         
-
 def main():
     #createTagDict()
-    getWeightedSimilarityIndex()
-    #cullConnectedGraph(12)
+    #getWeightedSimilarityIndex()
+    cullConnectedGraph(0.5)
     print "done!"
 
 

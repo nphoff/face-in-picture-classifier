@@ -39,23 +39,31 @@ class DepthFirstSearch(object):
 
     def pickle_results(self):
         if self.filename:
-            pickle.dump(open(self.filename[:-2] + "_sets.p", "wb"))
+            pickle.dump(self.connected_sets, open(self.filename[:-2] + "_sets.p", "wb"))
         else:
-            pickle.dump(open("../cached/connected_sets.p", "wb"))
-        pickle.dump(open("../cached/backup_connected_sets.p", "wb"))
+            pickle.dump(self.connected_sets, open("../cached/connected_sets.p", "wb"))
+        pickle.dump(self.connected_sets, open("../cached/backup_connected_sets.p", "wb"))
 
     
 if __name__ == "__main__":
-    a = DepthFirstSearch()
-    # a.node_data = { 'A' : ['B'],
+    # test = DepthFirstSearch()
+    # test.node_data = { 'A' : ['B'],
     #                 'B' : ['A', 'C'],
     #                 'C' : ['F','B'],
     #                 'D' : ['E'],
     #                 'E' : ['D', 'F'],
     #                 'F' : ['C', 'E']
     #                 }
-    # a.nodes = ['A','B','C','D','E', 'F']
+    # test.nodes = ['A','B','C','D','E', 'F']
+    a = DepthFirstSearch()
     a.import_pickled("../cached/connected_graph.p")
     a.find_all_connected()
     a.pickle_results()
-    print a.connected_sets
+    #print a.connected_sets
+    print len(a.connected_sets)
+    b = DepthFirstSearch()
+    b.import_pickled("../cached/culled_connected_graph.p")
+    b.find_all_connected()
+    b.pickle_results()
+    print len(b.connected_sets)
+
