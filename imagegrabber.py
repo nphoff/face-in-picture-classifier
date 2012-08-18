@@ -28,6 +28,7 @@ class ImageGrabber(object):
         self.targets = []
         self.target_ids = []
         self.maxItems = maxItems
+        self.tags = []
         
     def get_category_id(self, topCategory, subCategory=None,
                         subSubCategory = None):
@@ -73,6 +74,17 @@ class ImageGrabber(object):
     def set_listing_ids(self, inputListingIdList):
         self.listingIds = inputListingIdList
 
+    def get_listing_tags(self, listing_id):
+        self.tags = []
+        tagdata = requests.get(self.baseUrl + "/listings/" + str(listing_id),
+                               params=self.urlPayload)
+        results = tagdata.json['results']
+        self.unfiltered_results = results
+        for attr in results:
+            if 'tags' in attr:
+                tags = attr['tags']
+                self.tags = tags
+        
 if __name__ == '__main__':
     cv.NamedWindow("debug_window")
     a = ImageGrabber(20)
