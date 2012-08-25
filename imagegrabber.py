@@ -56,7 +56,7 @@ class ImageGrabber(object):
 
     def get_listing_image(self, listing_id):
         try:
-            self.cvImage = cv.LoadImage("../cached/images/" + str(listing_id))
+            self.cvImage = cv.LoadImage("/home/nathan/coding/cached/images/" + str(listing_id))
         except IOError as e:
                 im = requests.get(self.baseUrl + "/listings/" + str(listing_id) + "/images",
                                   params=self.urlPayload)
