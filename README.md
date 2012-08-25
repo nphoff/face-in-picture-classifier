@@ -12,4 +12,5 @@ Project components:
 - Tag clustering software, to determine which tags appear frequently together
   for the purposes of creating a feature vector
   - Depth first search to determine connected components
+- SVM and pegasos classifiers to check relevance of listing features
  
